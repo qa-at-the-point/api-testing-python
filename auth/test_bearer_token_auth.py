@@ -28,7 +28,7 @@ BASE_URL = "https://demoqa.com"
 ROUTE = "/Account/v1/User"
 
 
-def delete_user(user_id, token) -> Response:
+def delete_user(user_id: str, token: str) -> Response:
     # 1. Create the headers. Most auths go under the Authorization header.
     headers = {"Authorization": f"Bearer {token}"}
 
@@ -46,7 +46,7 @@ def delete_user(user_id, token) -> Response:
     return response
 
 
-def get_user(user_id, token) -> Dict:
+def get_user(user_id: str, token: str) -> Dict:
     headers = {"Authorization": f"Bearer {token}"}
     response = requests.get(f"{BASE_URL + ROUTE}/{user_id}", headers=headers)
     if not response.ok:
